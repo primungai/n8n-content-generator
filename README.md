@@ -22,4 +22,4 @@ Formats the content automatically and sends it to Google Sheets
 Built for Loja Nanasi’s Instagram page to streamline authentic, consistent content creation.
 
 Files
-content-generator-workflow.json — the full n8n workflow
+content-generator-workflow.json. the full n8n workflow
