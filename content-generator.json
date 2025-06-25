@@ -1,0 +1,314 @@
+{
+  "name": "Content Generator",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -520,
+        0
+      ],
+      "id": "08d15b99-b65e-428f-8dff-2b209ccd2d4f",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0b4590eb-cd30-4a3a-9dda-6c98524c21c2",
+              "name": "prompt",
+              "value": "=You are a Brazilian social media strategist working for Loja Nanasi — an e-commerce brand that sells handmade accessories and art from Kenya. Our mission is to connect people with unique, handcrafted pieces that reflect their values — not just gifts, but meaningful accessories they wear and live with every day.\n\nThere’s a growing segment of Brazilians who care about where their money goes, who made what they buy, and what values those products represent. But the market is still full of generic, mass-produced products with no story or soul. Nanasi exists to offer something different: art with meaning, tradition, and connection.\n\nOur positioning: Nanasi is for people who want to feel a sense of belonging, and who live a meaningful lifestyle. Our products are not just fashion — they’re reminders of values like authenticity, cultural respect, sustainability, and human connection.\n\nWe want our audience to see Nanasi the same way they might see a brand like TOMS: a brand that makes beautiful, wearable items that also carry a deeper purpose. Our goal is for people to integrate Nanasi into their daily lives — wearing it to work, gifting it to a friend, or styling it for the weekend — because they love how it looks and what it stands for.\n\nBrand DNA  \nVoice: Quente, direta, real, artesanal.  \nPersonalidade: Sincera, acolhedora, conectada à cultura.  \n\nValores:  \n- Qualidade: O que fazemos, fazemos bem.  \n- Gente em primeiro lugar.  \n- Autenticidade: Raízes em cada peça.  \n- Produção consciente e ética.  \n- Respeito à cultura e à tradição.  \n- Comunidade: Conexão entre pessoas por meio da arte.  \n\nInspiração de estilo:  \nUse o estilo de legenda e narrativa usado no perfil do Instagram @lojananasi. Exemplos típicos:\n\n- Cores de zebra >>>>  \n- Feito à mão. Sem moldes. Sem máquinas.  \n- Tentando coisas novas >>>>>  \n- Uma peça tradicional que tem presença >>>>>  \n- Mais do que arte >>>>  \n\nAs legendas são:  \n- Curtas  \n- Com toques informais e ritmo oral  \n- Trazem contexto cultural direto  \n- Usam linguagem visual e emocional (\"feito com alma\", \"encaixa na mão\", \"tem presença\")  \n- Começam com frases de impacto e estilo de voz única  \n\nRegras de conteúdo  \nAs legendas devem:  \n- Ter tom quente, direto e cultural (como o Instagram da @lojananasi)  \n- Incluir os **benefícios do produto** de forma indireta, natural, e sensorial  \n- Evitar termos técnicos (como “ajustável” ou “couro legítimo”) e, em vez disso, mostrar o benefício na vida real:  \n  - Ex: “não machuca a orelha”, “encaixa como se fosse feito pra você”, “pra dar presente com alma”, “pra usar o dia todo sem cansar”  \n- Conectar o produto com o uso diário, o estilo de vida e o sentimento de quem usa  \n\nExemplos de como descrever benefícios:  \n- “Feito pra quem quer sentir leveza o dia todo, sem abrir mão do estilo.”  \n- “Aquele tipo de acessório que chama atenção sem esforço.”  \n- “Encaixa bem, sem apertar. Daqueles que você usa e esquece que tá lá.”  \n- “Presente com propósito — desses que contam uma história só de olhar.”  \n- “Com detalhes que lembram a força e beleza da cultura viva.”  \n\nTarefa semanal  \nCada segunda-feira, gere um plano semanal de conteúdo para Instagram com:\n\n1 post carrossel  \n- Tema claro e inspirador  \n- 5 títulos de slides  \n- 1 legenda no estilo @lojananasi  \n- Que conecte o produto à vida real, cultura, e propósito  \n- Com benefícios indiretos incluídos\n\n2 Reels  \n- Cada um com hook, script curto e CTA claro  \n- Foco em história, valor cultural ou uso no dia a dia  \n- Usar frases impactantes, como no perfil Nanasi  \n- Incluir benefícios indiretos (leveza, encaixe, presença, etc.)\n\n1 legenda para post estático (imagem)  \n- Curta, direta e com alma  \n- Deve destacar um valor ou sentimento, como nos exemplos  \n- Com pelo menos um benefício do produto, contado de forma humana e sensorial\n\n7 ideias de stories (Seg a Dom)  \n- Misture storytelling, bastidores, cultura, perguntas ou reflexões  \n- Humanas, visuais, reais — nada engessado  \n- Use o tom de conversa que usamos em @lojananasi  \n- Sempre que possível, traga à tona o valor por trás de cada peça (feito à mão, presença, conforto, presente significativo)\n\nObjetivo: Criar conteúdo que ajude as pessoas a verem a Nanasi como parte de um estilo de vida com alma — uma marca que se usa, se vive e se dá de presente porque representa algo mais profundo.\n\nResponda sempre em português brasileiro.\n",
+              "type": "string"
+            },
+            {
+              "id": "3b384b98-1c1b-4fff-9ab9-66984de9917e",
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -260,
+        0
+      ],
+      "id": "f95b08ff-098b-4eca-afad-279c8dda0812",
+      "name": "Prompt"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "={{$json[\"prompt\"]}}"
+            }
+          ]
+        },
+        "jsonOutput": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -40,
+        0
+      ],
+      "id": "df675daa-6def-429a-a401-8c5b02f0e5e1",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "V95am9AnuHcNzI7b",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "let content = $json.message?.content;\n\nif (!content) {\n  throw new Error(\"OpenAI message content not found.\");\n}\n\nlet parsed = content;\n\n// If it's a string, try to clean and parse\nif (typeof content === \"string\") {\n  try {\n    const cleaned = content\n      .replace(/```json/i, \"\")\n      .replace(/```/g, \"\")\n      .trim();\n    parsed = JSON.parse(cleaned);\n  } catch (e) {\n    throw new Error(\"Failed to parse JSON: \" + e.message);\n  }\n}\n\n// Access the actual content\nconst plan = parsed.plano_semanal;\n\nif (!plan) {\n  throw new Error(\"Content structure is invalid. Missing 'plano_semanal'\");\n}\n\n// Build final structured output\nconst output = {\n  theme: plan.post_carrossel?.tema || \"\",\n  carousel: \"\",\n  reel1: \"\",\n  reel2: \"\",\n  staticPost: plan.post_estatico?.legenda || \"\",\n  storyMonday: \"\",\n  storyTuesday: \"\",\n  storyWednesday: \"\",\n  storyThursday: \"\",\n  storyFriday: \"\",\n  storySaturday: \"\",\n  storySunday: \"\"\n};\n\n// Carousel formatting\nif (plan.post_carrossel?.titulos_slides && plan.post_carrossel.legenda) {\n  const slides = plan.post_carrossel.titulos_slides.join(\"\\n\");\n  const caption = plan.post_carrossel.legenda;\n  output.carousel = `### Carrossel\\n${slides}\\n\\n**Legenda:**\\n${caption}`;\n}\n\n// Reels formatting\nif (plan.reels?.[0]) {\n  output.reel1 = `**Hook:** ${plan.reels[0].hook}\\n**Script:** ${plan.reels[0].script}\\n**CTA:** ${plan.reels[0].cta}`;\n}\nif (plan.reels?.[1]) {\n  output.reel2 = `**Hook:** ${plan.reels[1].hook}\\n**Script:** ${plan.reels[1].script}\\n**CTA:** ${plan.reels[1].cta}`;\n}\n\n// Stories formatting\nconst days = [\n  \"storyMonday\",\n  \"storyTuesday\",\n  \"storyWednesday\",\n  \"storyThursday\",\n  \"storyFriday\",\n  \"storySaturday\",\n  \"storySunday\"\n];\n\nif (Array.isArray(plan.stories_ideias)) {\n  plan.stories_ideias.forEach((story, index) => {\n    if (days[index]) {\n      output[days[index]] = story.replace(/^[\\-\\*\\d\\s]*:?/, \"\").trim();\n    }\n  });\n}\n\nreturn [{ json: output }];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        0
+      ],
+      "id": "3e60ca05-cf0c-4f04-9879-37b19de62455",
+      "name": "Format Content"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "11cCAbvtdgbIW7xkfqVmK1oQ9Yks7MjQi_MbL5I7vAXE",
+          "mode": "list",
+          "cachedResultName": "Content Ideas",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11cCAbvtdgbIW7xkfqVmK1oQ9Yks7MjQi_MbL5I7vAXE/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/11cCAbvtdgbIW7xkfqVmK1oQ9Yks7MjQi_MbL5I7vAXE/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Carousel": "=\t{{$json[\"carousel\"]}}",
+            "Reel 1": "=\t{{$json[\"reel1\"]}}",
+            "Reel 2": "=\t{{$json[\"reel2\"]}}",
+            "Static Post": "=\t{{$json[\"staticPost\"]}}",
+            "Story Monday": "=\t{{$json[\"storyMonday\"]}}",
+            "Story Tuesday": "=\t{{$json[\"storyTuesday\"]}}",
+            "Story Wednesday": "=\t{{$json[\"storyWednesday\"]}}",
+            "Story Thursday": "=\t{{$json[\"storyThursday\"]}}",
+            "Story Friday": "=\t{{$json[\"storyFriday\"]}}",
+            "Story Saturday": "=\t{{$json[\"storySaturday\"]}}",
+            "Story Sunday": "=\t{{$json[\"storySunday\"]}}",
+            "Theme": "=\t{{$json[\"theme\"]}}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Theme",
+              "displayName": "Theme",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Carousel",
+              "displayName": "Carousel",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reel 1",
+              "displayName": "Reel 1",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reel 2",
+              "displayName": "Reel 2",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Static Post",
+              "displayName": "Static Post",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Story Monday",
+              "displayName": "Story Monday",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Story Tuesday",
+              "displayName": "Story Tuesday",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Story Wednesday",
+              "displayName": "Story Wednesday",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Story Thursday",
+              "displayName": "Story Thursday",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Story Friday",
+              "displayName": "Story Friday",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Story Saturday",
+              "displayName": "Story Saturday",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Story Sunday",
+              "displayName": "Story Sunday",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        600,
+        0
+      ],
+      "id": "cf3d695b-691f-499e-82a2-3ff7efe1e965",
+      "name": "Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "TXmcJqpDWSqvO9qd",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Prompt",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prompt": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Format Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Content": {
+      "main": [
+        [
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "c54d1895-1467-4433-899f-3e842ff6a80e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "cd235a0e43dd3fe279c7c3dc542eb3988223846d1660e0ca693d0d1f187ea0ae"
+  },
+  "id": "rPBKrqgUmQoyrORT",
+  "tags": []
+}
